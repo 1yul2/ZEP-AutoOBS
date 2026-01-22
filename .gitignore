@@ -26,7 +26,8 @@ logs/
 # Environment / Secrets
 ############################
 .env
-.env.*
+envs/.env.frontend
+envs/.env.backend
 !.env.example
 *.pem
 *.key
