@@ -1,0 +1,117 @@
+############################
+# OS / System
+############################
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+############################
+# Editors / IDEs
+############################
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+*.ipr
+*.iws
+
+############################
+# Logs
+############################
+*.log
+logs/
+
+############################
+# Environment / Secrets
+############################
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+############################
+# Python / FastAPI
+############################
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Test / Lint / Type check
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+############################
+# FastAPI runtime
+############################
+# uvicorn --reload
+*.pid
+
+############################
+# Node / Frontend
+############################
+node_modules/
+.pnp
+.pnp.js
+
+# Frontend build outputs
+dist/
+build/
+.next/
+out/
+.nuxt/
+.svelte-kit/
+
+# Tool caches
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+.turbo/
+
+############################
+# TypeScript
+############################
+*.tsbuildinfo
+
+############################
+# OBS / Automation (optional)
+############################
+# OBS local config or temp files
+obs-config/
+obs-temp/
+
+############################
+# Misc
+############################
+*.swp
+*.swo
+*.tmp
+*.bak
+
+############################
+# Keep empty dirs
+############################
+# Use .gitkeep if needed
