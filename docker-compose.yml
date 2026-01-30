@@ -2,6 +2,8 @@ services:
   obs:
     container_name: obs
     build: .
+    env_file:
+      - .env
     ports:
       - "8000:8000"
     volumes:

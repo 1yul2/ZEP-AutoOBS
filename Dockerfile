@@ -6,7 +6,10 @@ WORKDIR /app
 RUN pip install --no-cache-dir \
     fastapi[standard] \
     uvicorn \
-    obs-websocket-py
+    obs-websocket-py \
+    slack-bolt \
+    slack-sdk \
+    python-dotenv
 
 # 소스 코드
 COPY app ./app
