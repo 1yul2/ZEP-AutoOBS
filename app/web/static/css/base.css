@@ -1,0 +1,217 @@
+/* ======================================================
+   RESET
+====================================================== */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --sidebar-bg: #1f2937;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+}
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+
+/* ======================================================
+   LAYOUT
+====================================================== */
+.navbar-vertical {
+  width: 220px;
+}
+
+/* ===== SIDEBAR INNER CONTAINER SLIM ===== */
+.navbar-vertical > .container-fluid {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.page-wrapper {
+  flex: 1;
+  margin-left: 0;
+}
+
+/* 데스크탑 (lg 이상) */
+@media (min-width: 992px) {
+  .navbar-vertical {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  .page-wrapper {
+    flex: 1;
+    margin-left: 220px;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+}
+
+
+/* ======================================================
+   MOBILE HEADER
+====================================================== */
+.mobile-header {
+  background: #1f2937;
+}
+
+
+/* ======================================================
+   LOGO
+====================================================== */
+.navbar-brand-link {
+  display: block;
+  text-align: center;
+  color: #9aa4b2 !important; /* 기본: 어둡게 */
+  text-decoration: none;
+}
+
+.navbar-brand {
+  color: inherit;
+  margin: 24px 0 12px;
+  font-size: 20px;
+  user-select: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* hover 시 밝게 */
+.navbar-brand-link:hover {
+  color: #ffffff !important;
+}
+
+/* Tabler 기본 hover opacity/filter 완전 제거 */
+.navbar-brand,
+.navbar-brand-link,
+.navbar-brand-link:hover {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+
+/* ======================================================
+   DIVIDER
+====================================================== */
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid rgba(226, 226, 226, 0.36);
+  margin: 12px 14px 24px;
+}
+
+
+/* ======================================================
+   MENU
+====================================================== */
+.sidebar-menu {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar-menu .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px;
+  margin: 0 4px;
+  border-radius: 6px;
+  background: transparent !important;
+}
+
+.sidebar-menu .nav-link-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #d1d5db;
+  letter-spacing: 0.2px;
+  transition: color 0.15s ease;
+}
+
+.sidebar-menu .nav-link-icon {
+  color: #9ca3af;
+  transition: color 0.15s ease;
+}
+
+/* hover: 배경 없음, 글자만 밝게 */
+.sidebar-menu .nav-link:hover .nav-link-title,
+.sidebar-menu .nav-link:hover .nav-link-icon {
+  color: #ffffff;
+}
+
+/* active */
+.sidebar-menu .nav-link.active .nav-link-title,
+.sidebar-menu .nav-link.active .nav-link-icon {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+.sidebar-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #9aa4b2;
+  padding: 12px 0 16px;
+  opacity: 0.85;
+  user-select: none;
+}
+
+.sidebar-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* ======================================================
+   OFFCANVAS (MOBILE)
+====================================================== */
+.offcanvas-start {
+  width: 220px;
+}
+
+/* ===============================
+   DESKTOP: offcanvas 강제 해제
+=============================== */
+@media (min-width: 992px) {
+  #sidebar {
+    position: fixed !important;
+    transform: none !important;
+    visibility: visible !important;
+    inset: 0 auto 0 0;
+  }
+
+  .offcanvas-backdrop {
+    display: none !important;
+  }
+}
+
+#sidebar,
+.navbar-vertical,
+.navbar-dark {
+  background-color: var(--sidebar-bg) !important;
+  --tblr-navbar-bg: var(--sidebar-bg);
+}
+
+#sidebar * {
+  background-color: transparent;
+}
