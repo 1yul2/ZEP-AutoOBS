@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.container {
+  width: 480px;
+  margin: 60px auto;
+  background: #020617;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+}
+
+section {
+  margin-bottom: 28px;
+}
+
+section h2 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #c7d2fe;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.row span {
+  font-size: 14px;
+}
+
+.row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22c55e;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+.input-with-eye {
+  position: relative;
+}
+
+.input-with-eye input {
+  padding-right: 42px;
+}
+
+.input-with-eye button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.input-with-eye button:hover {
+  color: #e5e7eb;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #022c22;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}

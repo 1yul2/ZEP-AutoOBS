@@ -47,7 +47,7 @@ async def run_zep(on_chat):
         # =============================
         # 4️⃣ 닉네임 자동 설정 (REC_BOT)
         # =============================
-        await set_zep_nickname(page, BOT_NICKNAME)
+        await set_zep_nickname(page, BOT_NICKNAME) # 아직 오류 있음
 
         # =============================
         # 5️⃣ 프로세스 유지
@@ -82,7 +82,4 @@ async def set_zep_nickname(page, nickname: str):
         print(f"🤖 ZEP 캐릭터 닉네임 설정 완료: {nickname}", flush=True)
 
     except Exception as e:
-        # 이미 닉네임이 설정된 경우 or 모달이 없는 경우
         print("ℹ️ ZEP 닉네임 입력 모달 없음 또는 이미 설정됨", flush=True)
-        # 필요하면 디버깅용 출력
-        # print("DEBUG:", e, flush=True)

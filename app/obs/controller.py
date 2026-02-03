@@ -23,5 +23,10 @@ def handle_camera_event(event_type: str):
                 print("[OBS] camera OFF → pause recording")
                 obs.pause_record()
 
+        elif event_type == "stop":
+            if recording:
+                print("[OBS] camera ON stop recording")
+                obs.stop_record()
+
     finally:
         obs.disconnect()

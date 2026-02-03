@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZEP 녹화 관리자</title>
+  <link rel="stylesheet" href="/static/settings.css" />
+</head>
+<body>
+
+<div class="container">
+  <h1>🎛️ 녹화 시스템 관리자</h1>
+
+  <!-- OBS -->
+  <section>
+    <h2>OBS</h2>
+
+    <input id="obs_host" type="text" placeholder="OBS HOST" />
+    <input id="obs_port" type="text" placeholder="OBS PORT" />
+    <input id="obs_password" type="text" placeholder="OBS PASSWORD" />
+  </section>
+
+  <!-- Slack -->
+  <section>
+    <h2>Slack</h2>
+
+    <div class="row">
+      <span>Slack 사용</span>
+      <input type="checkbox" id="slack_enabled">
+    </div>
+
+    <div class="row">
+      <span>카메라 감지</span>
+      <input type="checkbox" id="slack_camera">
+    </div>
+
+    <div class="row">
+      <span>입퇴장 감지</span>
+      <input type="checkbox" id="slack_join">
+    </div>
+
+    <input id="slack_bot_token" type="text" placeholder="Slack Bot Token" />
+    <input id="slack_app_token" type="text" placeholder="Slack App Token" />
+    <input id="slack_channel" type="text" placeholder="Slack Channel ID" />
+    <input id="slack_target" type="text" placeholder="대상 닉네임" />
+  </section>
+
+  <!-- ZEP -->
+  <section>
+    <h2>ZEP</h2>
+
+    <div class="row">
+      <span>ZEP 기능 사용</span>
+      <input type="checkbox" id="zep_enabled">
+    </div>
+
+    <input id="zep_url" type="text" placeholder="ZEP URL" />
+    <input id="zep_admins" type="text" placeholder="관리자 (한율,한율2)" />
+  </section>
+
+  <button onclick="save()">저장</button>
+</div>
+
+<script>
+async function load() {
+  const res = await fetch("/api/settings");
+  const s = await res.json();
+
+  obs_host.value = s.obs_host || "";
+  obs_port.value = s.obs_port || "";
+  obs_password.value = s.obs_password || "";
+
+  slack_enabled.checked = s.slack_enabled;
+  slack_camera.checked = s.slack_detect_camera;
+  slack_join.checked = s.slack_detect_join_leave;
+
+  slack_bot_token.value = s.slack_bot_token || "";
+  slack_app_token.value = s.slack_app_token || "";
+  slack_channel.value = s.slack_channel_id || "";
+  slack_target.value = s.slack_target_nickname || "";
+
+  zep_enabled.checked = s.zep_enabled;
+  zep_url.value = s.zep_url || "";
+  zep_admins.value = (s.zep_super_admins || []).join(",");
+}
+
+async function save() {
+  await fetch("/api/settings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      obs_host: obs_host.value,
+      obs_port: obs_port.value,
+      obs_password: obs_password.value,
+
+      slack_enabled: slack_enabled.checked,
+      slack_detect_camera: slack_camera.checked,
+      slack_detect_join_leave: slack_join.checked,
+      slack_bot_token: slack_bot_token.value,
+      slack_app_token: slack_app_token.value,
+      slack_channel_id: slack_channel.value,
+      slack_target_nickname: slack_target.value,
+
+      zep_enabled: zep_enabled.checked,
+      zep_url: zep_url.value,
+      zep_super_admins: zep_admins.value
+    })
+  });
+
+  alert("저장되었습니다");
+}
+
+load();
+</script>
+
+</body>
+</html>

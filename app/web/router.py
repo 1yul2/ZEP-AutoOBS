@@ -7,8 +7,8 @@ templates = Jinja2Templates(directory="app/web/templates")
 
 
 @router.get("/", response_class=HTMLResponse)
-def record_page(request: Request):
+def settings_page(request: Request):
     return templates.TemplateResponse(
-        "record.html",
+        "settings.html",
         {"request": request}
     )

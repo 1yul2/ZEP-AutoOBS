@@ -1,1 +1,0 @@
-console.log("AutoOBS base loaded");

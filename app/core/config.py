@@ -15,6 +15,7 @@ class Settings:
     OBS_PASSWORD: str = os.getenv("OBS_PASSWORD", "")
 
     # Slack
+    SLACK_ENABLED: bool = str_to_bool(os.getenv("SLACK_ENABLED"), default=True)
     SLACK_BOT_TOKEN: str = os.getenv("SLACK_BOT_TOKEN", "")
     SLACK_APP_TOKEN: str = os.getenv("SLACK_APP_TOKEN", "")
     SLACK_CHANNEL_ID: str = os.getenv("SLACK_CHANNEL_ID", "")
@@ -23,6 +24,7 @@ class Settings:
     SLACK_DETECT_JOIN_LEAVE: bool = str_to_bool(os.getenv("SLACK_DETECT_JOIN_LEAVE"), default=True)
 
     # ZEP
+    ZEP_ENABLED: bool = str_to_bool(os.getenv("ZEP_ENABLED"), default=True)
     ZEP_URL: str = os.getenv("ZEP_URL", "")
     ZEP_SUPER_ADMINS: set[str] = {
         name.strip()

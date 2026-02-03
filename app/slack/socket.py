@@ -8,7 +8,6 @@ from app.obs.controller import handle_camera_event
 
 
 def start_socket_mode():
-    print("[SOCKET] starting socket mode thread...")
 
     app = App(token=settings.SLACK_BOT_TOKEN)
 
@@ -20,7 +19,6 @@ def start_socket_mode():
             handle_camera_event(event_type)
 
     def run():
-        print("[SOCKET] connecting to Slack...")
         handler = SocketModeHandler(app, settings.SLACK_APP_TOKEN)
         handler.start()
 
