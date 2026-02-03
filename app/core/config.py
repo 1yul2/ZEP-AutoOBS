@@ -5,16 +5,23 @@ load_dotenv()
 
 
 class Settings:
-    # ===== OBS =====
+    # OBS
     OBS_HOST: str = os.getenv("OBS_HOST", "localhost")
     OBS_PORT: int = int(os.getenv("OBS_PORT", 4455))
     OBS_PASSWORD: str = os.getenv("OBS_PASSWORD", "")
 
-    # ===== Slack =====
+    # Slack
     SLACK_BOT_TOKEN: str = os.getenv("SLACK_BOT_TOKEN", "")
     SLACK_APP_TOKEN: str = os.getenv("SLACK_APP_TOKEN", "")
     SLACK_CHANNEL_ID: str = os.getenv("SLACK_CHANNEL_ID", "")
     SLACK_TARGET_NICKNAME: str = os.getenv("SLACK_TARGET_NICKNAME", "")
+
+    # ZEP
+    ZEP_SUPER_ADMINS: set[str] = {
+        name.strip()
+        for name in os.getenv("ZEP_SUPER_ADMINS", "").split(",")
+        if name.strip()
+    }
 
 
 settings = Settings()
