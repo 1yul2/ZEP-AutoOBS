@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def str_to_bool(v, default=False):
+    if v is None:
+        return default
+    return str(v).strip().lower() in ("1", "true", "yes", "y", "on")
 
 class Settings:
     # OBS
@@ -15,6 +19,8 @@ class Settings:
     SLACK_APP_TOKEN: str = os.getenv("SLACK_APP_TOKEN", "")
     SLACK_CHANNEL_ID: str = os.getenv("SLACK_CHANNEL_ID", "")
     SLACK_TARGET_NICKNAME: str = os.getenv("SLACK_TARGET_NICKNAME", "")
+    SLACK_DETECT_CAMERA: bool = str_to_bool(os.getenv("SLACK_DETECT_CAMERA"), default=True)
+    SLACK_DETECT_JOIN_LEAVE: bool = str_to_bool(os.getenv("SLACK_DETECT_JOIN_LEAVE"), default=True)
 
     # ZEP
     ZEP_URL: str = os.getenv("ZEP_URL", "")
@@ -33,3 +39,4 @@ if not settings.SLACK_BOT_TOKEN:
 
 if not settings.SLACK_CHANNEL_ID:
     raise RuntimeError("SLACK_CHANNEL_ID is not set")
+

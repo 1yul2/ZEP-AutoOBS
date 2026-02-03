@@ -10,21 +10,26 @@ def parse_camera_event(text: str):
 
     keyword = settings.SLACK_TARGET_NICKNAME
     if keyword and keyword not in text:
-        print("[PARSER] Nickname keyword not matched")
         return None
 
-    if "카메라가 on 되었습니다" in text:
-        print("[PARSER] Camera ON detected")
-        return "on"
+    if settings.SLACK_DETECT_CAMERA:
+        if "카메라가 on 되었습니다" in text:
+            return "on"
 
-    if "카메라가 off 되었습니다" in text:
-        print("[PARSER] Camera OFF detected")
-        return "off"
+        if "카메라가 off 되었습니다" in text:
+            return "off"
 
-    if "camera has been turned on" in text:
-        return "on"
+        if "camera has been turned on" in text:
+            return "on"
 
-    if "camera has been turned off" in text:
-        return "off"
+        if "camera has been turned off" in text:
+            return "off"
+
+    if settings.SLACK_DETECT_JOIN_LEAVE:
+        if "교실에 접속했습니다" in text:
+            return "on"
+
+        if "접속을 종료했습니다" in text:
+            return "off"
 
     return None
