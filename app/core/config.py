@@ -17,6 +17,7 @@ class Settings:
     SLACK_TARGET_NICKNAME: str = os.getenv("SLACK_TARGET_NICKNAME", "")
 
     # ZEP
+    ZEP_URL: str = os.getenv("ZEP_URL", "")
     ZEP_SUPER_ADMINS: set[str] = {
         name.strip()
         for name in os.getenv("ZEP_SUPER_ADMINS", "").split(",")

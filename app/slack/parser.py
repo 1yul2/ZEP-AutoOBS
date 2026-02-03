@@ -13,6 +13,14 @@ def parse_camera_event(text: str):
         print("[PARSER] Nickname keyword not matched")
         return None
 
+    if "카메라가 on 되었습니다" in text:
+        print("[PARSER] Camera ON detected")
+        return "on"
+
+    if "카메라가 off 되었습니다" in text:
+        print("[PARSER] Camera OFF detected")
+        return "off"
+
     if "camera has been turned on" in text:
         return "on"
 
