@@ -10,7 +10,7 @@ def str_to_bool(v, default=False):
 
 class Settings:
     #System
-    LOG_ENABLED: bool = str_to_bool(os.getenv("LOG_ENABLED"), default=True)
+    LOGGING_ENABLED: bool = str_to_bool(os.getenv("LOGGING_ENABLED"), default=True)
 
     # OBS
     OBS_HOST: str = os.getenv("OBS_HOST", "localhost")
