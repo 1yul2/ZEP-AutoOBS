@@ -34,7 +34,6 @@ RUN pip install --no-cache-dir \
 
 RUN playwright install chromium
 
-# 4️⃣ 소스 코드
 COPY app ./app
 
 EXPOSE 8000
