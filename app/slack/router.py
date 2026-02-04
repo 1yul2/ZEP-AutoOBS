@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from app.slack.service import SlackService
 from app.slack.parser import parse_camera_event
-from app.obs.controller import handle_camera_event
+from app.core.controller import handle_camera_event
 
 
 router = APIRouter(prefix="/slack", tags=["Slack"])

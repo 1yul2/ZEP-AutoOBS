@@ -24,20 +24,21 @@ def write_env(key: str, value: str):
     ENV_PATH.write_text("\n".join(new_lines) + "\n")
 
 def read_env():
-    print("🔥 READ_ENV CALLED", flush=True)
-    print("🔥 ENV PATH:", ENV_PATH, flush=True)
-    print("🔥 ENV EXISTS:", ENV_PATH.exists(), flush=True)
+    from app.core.config import settings
+    if settings.LOGGING_ENABLED:
+        print(f"[알림] : env를 정보를 불러오는 중입니다.")
 
     data = {}
     if not ENV_PATH.exists():
         return data
 
     content = ENV_PATH.read_text()
-    print("🔥 ENV CONTENT:\n", content, flush=True)
 
     for line in content.splitlines():
         if not line or line.startswith("#") or "=" not in line:
             continue
         k, v = line.split("=", 1)
         data[k] = v
+    if settings.LOGGING_ENABLED:
+        print(f"[알림] : env를 정보를 모두 불러왔습니다.")
     return data

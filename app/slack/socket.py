@@ -4,7 +4,7 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 from app.core.config import settings
 from app.slack.parser import parse_camera_event
-from app.obs.controller import handle_camera_event
+from app.core.controller import handle_camera_event
 
 
 def start_socket_mode():

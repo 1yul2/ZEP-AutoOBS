@@ -80,7 +80,7 @@ async function load() {
 
   zep_enabled.checked = s.zep_enabled;
   zep_url.value = s.zep_url || "";
-  zep_admins.value = (s.zep_super_admins || []).join(",");
+  zep_admins.value = s.zep_super_admins || "";
 }
 
 async function save() {

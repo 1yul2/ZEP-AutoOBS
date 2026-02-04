@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from app.core.env_writer import write_env, read_env
 
 router = APIRouter(prefix="/api/settings")
-print("🔥 settings.py LOADED", flush=True)
 
 @router.get("")
 def get_settings():

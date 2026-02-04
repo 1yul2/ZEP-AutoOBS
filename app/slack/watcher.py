@@ -3,7 +3,7 @@ import threading
 
 from app.slack.service import SlackService
 from app.slack.parser import parse_camera_event
-from app.obs.controller import handle_camera_event
+from app.core.controller import handle_camera_event
 
 
 def start_slack_watcher(interval: int = 5):

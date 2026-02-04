@@ -1,6 +1,6 @@
 import re
 from app.core.config import settings
-from app.obs.controller import handle_camera_event
+from app.core.controller import handle_camera_event
 
 NICKNAME_PATTERN = re.compile(r"[가-힣a-zA-Z0-9_]{2,}")
 MESSAGE_PATTERN = re.compile(r"\"([^\"]{1,100})")
@@ -51,5 +51,5 @@ def handle_zep_chat(data: bytes):
     if "종료" in msg:
         handle_camera_event("stop")
         return
-
-    print(f"💬 [ZEP CHAT] {nickname}: {message}", flush=True)
+    if settings.LOGGING_ENABLED:
+        print(f"[ZEP] : {nickname}: {message}")

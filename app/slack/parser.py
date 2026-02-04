@@ -6,7 +6,8 @@ def parse_camera_event(text: str):
     Slack 메시지에서 camera on/off 감지
     닉네임은 부분일치 허용
     """
-    print(f"[PARSER] Raw text: {text}")
+    if settings.LOGGING_ENABLED:
+        print(f"[슬랙] : {text}")
 
     keyword = settings.SLACK_TARGET_NICKNAME
     if keyword and keyword not in text:

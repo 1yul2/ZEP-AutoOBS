@@ -1,5 +1,5 @@
 from app.obs.service import ObsService
-
+from app.core.config import settings
 
 def handle_camera_event(event_type: str):
     obs = ObsService()
@@ -12,20 +12,24 @@ def handle_camera_event(event_type: str):
 
         if event_type == "on":
             if not recording:
-                print("[OBS] camera ON → start recording")
+                if settings.LOGGING_ENABLED:
+                    print(f"[알림] : 카메라(접속)을 감지하여 녹화를 시작합니다.")
                 obs.start_record()
             elif paused:
-                print("[OBS] camera ON → resume recording")
+                if settings.LOGGING_ENABLED:
+                    print(f"[알림] : 카메라(접속)을 감지하여 녹화를 재개합니다.")
                 obs.resume_record()
 
         elif event_type == "off":
             if recording and not paused:
-                print("[OBS] camera OFF → pause recording")
+                if settings.LOGGING_ENABLED:
+                    print(f"[알림] : 카메라(접속)을 감지하여 녹화를 정지합니다.")
                 obs.pause_record()
 
         elif event_type == "stop":
             if recording:
-                print("[OBS] camera ON stop recording")
+                if settings.LOGGING_ENABLED:
+                    print(f"[알림] : 채팅을 감지하여 녹화를 종료합니다.")
                 obs.stop_record()
 
     finally:

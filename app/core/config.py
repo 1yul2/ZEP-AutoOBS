@@ -9,6 +9,9 @@ def str_to_bool(v, default=False):
     return str(v).strip().lower() in ("1", "true", "yes", "y", "on")
 
 class Settings:
+    #System
+    LOG_ENABLED: bool = str_to_bool(os.getenv("LOG_ENABLED"), default=True)
+
     # OBS
     OBS_HOST: str = os.getenv("OBS_HOST", "localhost")
     OBS_PORT: int = int(os.getenv("OBS_PORT", 4455))
