@@ -26,7 +26,6 @@ def startup_event():
     if settings.SLACK_ENABLED:
         if settings.LOGGING_ENABLED:
             print("[알림] : 슬랙 메시지 감지 시스템을 시작합니다.")
-            start_socket_mode()
     start_socket_mode()
     if settings.ZEP_ENABLED:
         if settings.LOGGING_ENABLED:
